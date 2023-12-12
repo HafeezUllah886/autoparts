@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/product/delete/{id}', [productController::class, "deletePro"]);
     Route::get('/products/trashed', [productController::class, "trashedPro"]);
     Route::get('/product/restore/{id}', [productController::class, "restorePro"]);
+    Route::post('/product/import', [productController::class, "import"]);
 
     Route::get('/accounts', [AccountController::class, "accounts"]);
     Route::post('/accounts/{type}', [AccountController::class, "storeAccount"]);
@@ -67,6 +68,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/accounts/details/{id}/{from}/{to}', [AccountController::class, "details"]);
     Route::post('/account/edit/{type}', [AccountController::class, "editAccount"]);
     Route::get('/account/statement/pdf/{id}/{from}/{to}', [AccountController::class, "downloadStatement"]);
+    Route::post('/account/vendor/import', [AccountController::class, "vendorImport"]);
+    Route::post('/account/customer/import', [AccountController::class, "customerImport"]);
 
 
     Route::get('/deposit', [AccountController::class, "deposit"]);

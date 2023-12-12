@@ -13,6 +13,8 @@ use App\Models\withdraw;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\vendorsImport;
 
 class AccountController extends Controller
 {
@@ -389,4 +391,33 @@ class AccountController extends Controller
         return $pdf->download($file_name);
 
     }
+    public function vendorImport(request $req)
+    {
+        $file = $req->file;
+        $extension = $file->getClientOriginalExtension();
+        if($extension == "xlsx")
+        {
+            Excel::import(new vendorsImport, $file);
+            return back()->with("success", "Successfully imported");
+        }
+        else
+        {
+            return back()->with("error", "Invalid file extension");
+        }
+    }
+
+   /*  public function customerImport(request $req)
+    {
+        $file = $req->file;
+        $extension = $file->getClientOriginalExtension();
+        if($extension == "xlsx")
+        {
+            Excel::import(new vendorImport, $file);
+            return back()->with("success", "Successfully imported");
+        }
+        else
+        {
+            return back()->with("error", "Invalid file extension");
+        }
+    } */
 }

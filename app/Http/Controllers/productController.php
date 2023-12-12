@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductsImport;
 use App\Models\catergory;
 use App\Models\company;
 use App\Models\expense;
@@ -14,6 +15,7 @@ use App\Models\saleReturnDetails;
 use App\Models\stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
 
 class productController extends Controller
 {
@@ -264,5 +266,20 @@ class productController extends Controller
                 'pro' => $pro
             ]
         );
+    }
+
+    public function import(request $req)
+    {
+        $file = $req->file;
+        $extension = $file->getClientOriginalExtension();
+        if($extension == "xlsx")
+        {
+            Excel::import(new ProductsImport, $file);
+            return back()->with("success", "Successfully imported");
+        }
+        else
+        {
+            return back()->with("error", "Invalid file extension");
+        }
     }
 }

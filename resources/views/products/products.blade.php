@@ -26,7 +26,8 @@
                     @endphp
                 <a href="{{ url('/profit/') }}/{{ $firstDateOfMonth }}/{{ $lastDateOfMonth }}" class="btn btn-info mr-2" >{{ __('lang.Profit/Loss') }}</a>
                 <a href="{{ url('/products/trashed') }}" class="btn btn-dark mr-2" >{{ __('lang.Trashed') }}</a>
-                <button class="btn btn-success" data-toggle="modal" data-target="#modal">{{ __('lang.CreateNew') }}</button>
+                <button class="btn btn-success mr-2" data-toggle="modal" data-target="#modal">{{ __('lang.CreateNew') }}</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#importModal">Import</button>
                 </div>
 
             </div>
@@ -93,6 +94,32 @@
     </div>
 </div>
 
+{{-- Model Starts Here --}}
+<div class="modal" id="importModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Import Products List</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" enctype="multipart/form-data" action="{{ url('/product/import') }}">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file">Select Excel File | <a href="{{url('assets/product_sample.xlsx')}}">Download sample file </a></label>
+                        <input type="file" required name="file" id="file" accept=".xlsx" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('lang.Close') }}</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {{-- Model Starts Here --}}
 <div class="modal" id="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">

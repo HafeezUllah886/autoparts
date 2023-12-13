@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\customersImport;
 use App\Models\account;
 use App\Models\deposit;
 use App\Models\expense;
@@ -406,18 +407,18 @@ class AccountController extends Controller
         }
     }
 
-   /*  public function customerImport(request $req)
+    public function customerImport(request $req)
     {
         $file = $req->file;
         $extension = $file->getClientOriginalExtension();
         if($extension == "xlsx")
         {
-            Excel::import(new vendorImport, $file);
+            Excel::import(new customersImport, $file);
             return back()->with("success", "Successfully imported");
         }
         else
         {
             return back()->with("error", "Invalid file extension");
         }
-    } */
+    }
 }

@@ -67,7 +67,7 @@
                             <select name="product" required id="product" class="select2">
                                 <option value=""></option>
                                 @foreach ($products as $pro)
-                                    <option value="{{ $pro->id }}">{{ $pro->name }} | {{$pro->partno}} | {{$pro->brand}}</option>
+                                    <option value="{{ $pro->id }}">{{ $pro->name }} | {{$pro->partno}} | {{$pro->madein}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -101,7 +101,8 @@
                             <tr>
                                 <th class="border-top-0">{{ __('lang.Ser') }}</th>
                                 <th class="border-top-0">{{ __('lang.Product') }}</th>
-                                <th class="border-top-0">{{ __('lang.Size') }}</th>
+                                <th class="border-top-0">Part No.</th>
+                                <th class="border-top-0">Made In</th>
                                 <th class="border-top-0">{{ __('lang.Quantity') }}</th>
                                 <th class="border-top-0">{{ __('lang.Price') }}</th>
                                 <th class="border-top-0">{{ __('lang.Amount') }}</th>

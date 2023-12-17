@@ -65,7 +65,7 @@
         }
 
         .body-section {
-            padding: 16px;
+            padding: 5px;
           /*   border-left: 2px solid #898811;
             border-right: 2px solid #898811; */
 
@@ -253,8 +253,9 @@
 <body>
 
     <div class="container">
-        <img style="margin:0;width:100%;" src="{{ asset('assets/images/header.jpg') }}" alt="">
+        <img style="margin:0;width:300px;" src="{{ asset('assets/images/rlogo.png') }}" alt="">
         <div class="body-section">
+            <div><h1 style="text-align: center;">Customer Invoice</h1></div>
             <div class="row">
                 <div class="qoute">
                     <h2 style="text-align: center;">INVOICE# &nbsp; {{ $invoice->id }}</h2>
@@ -268,11 +269,8 @@
                             {{ @$invoice->customer_account->title }} ({{ @$invoice->customer_account->type }})
                         @else
                             {{ $invoice->walking }} (Walk In)
-
                         @endif
                     </h3>
-
-
                 </div>
                 <div class="col-6">
                     <div class="company-details">
@@ -319,8 +317,8 @@
                             <td>{{ $item->product->madein }}</td>
                             <td>{{ $item->product->size }}</td>
                             <td>{{ $item->qty }}</td>
-                            <td>{{ $item->price }}</td>
-                            <td>{{ $item->price * $item->qty }}</td>
+                            <td>{{ round($item->price,0) }}</td>
+                            <td>{{ round($item->price * $item->qty,0) }}</td>
                         </tr>
                         @php
                             $total += $item->price * $item->qty;
@@ -332,7 +330,7 @@
                             <strong>Total</strong>
                         </td>
                         <td>
-                            <strong>{{ $total}}</strong>
+                            <strong>{{ round($total,0)}}</strong>
                         </td>
                     </tr>
                     @if($invoice->discount > 0)
@@ -344,7 +342,7 @@
                             <strong>{{ $invoice->discount == 0 ? 0 : $invoice->discount}}</strong>
                         </td>
                     </tr>
-                    @endif
+
                     <tr>
                         <td colspan="9" class="text-right">
                             <strong>Net Total</strong>
@@ -353,6 +351,7 @@
                             <strong>{{ ($total - $invoice->discount) }}</strong>
                         </td>
                     </tr>
+                    @endif
 
 
                     @if (@$invoice->customer_account->title)
@@ -392,7 +391,7 @@
                 </tbody>
             </table>
             <br>
-            <table style="width:500px;">
+           {{--  <table style="width:500px;">
                 <tr>
                     <td style="text-align: left; width:40%;"> <strong>Payment type:</strong> </td>
                     <td style="text-align: left">{{$invoice->account->title ?? "Unpaid"}}</td>
@@ -415,7 +414,7 @@
                     <td style="text-align: left">{{ $cur_balance }}</td>
                 </tr>
                 @endif
-            </table>
+            </table> --}}
 
 
             <br><br>
@@ -436,10 +435,11 @@
 
 </html>
 <script>
-    window.print();
 
+    window.print();
         setTimeout(function() {
         window.location.href = "{{ url('/sale/history')}}";
     }, 5000);
+
 
 </script>

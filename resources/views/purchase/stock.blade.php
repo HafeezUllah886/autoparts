@@ -21,8 +21,6 @@
                                 <th class="border-top-0">{{ __('lang.Ser') }}</th>
                                 <th class="border-top-0">{{ __('lang.Product') }}</th>
                                 <th class="border-top-0">{{ __('lang.Size') }}</th>
-                                <th class="border-top-0">{{ __('lang.Category') }}</th>
-                                <th class="border-top-0">{{ __('lang.Company') }}</th>
                                 <th class="border-top-0">{{ __('lang.AvailableStock') }}</th>
                                 <th class="border-top-0">{{ __('lang.SalePrice') }}</th>
                                 <th class="border-top-0">{{ __('lang.StockValue') }}</th>
@@ -44,8 +42,6 @@
                                 <td> {{ $ser }} </td>
                                 <td>{{$item['product']}}</td>
                                 <td>{{$item['size']}}</td>
-                                <td>{{$item['cat']}}</td>
-                                <td>{{$item['coy']}}</td>
                                 <td>{{$item['balance']}}</td>
                                 <td>{{$item['price']}}</td>
                                 <td>{{$item['value']}}</td>
@@ -54,7 +50,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="7" style="text-align: right;"> <strong>Total</strong> </td>
+                                <td colspan="5" style="text-align: right;"> <strong>Total</strong> </td>
                                 <td style="text-align: center;"> <strong>{{ $total }}</strong> </td>
                             </tr>
                         </tfoot>

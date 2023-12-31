@@ -308,7 +308,6 @@
                 <thead>
                     <tr>
                         <th class="w-5">#</th>
-                        <th class="w-15">Category</th>
                         <th class="w-15">Item</th>
                         <th class="w-15">Size</th>
                         <th class="w-10">Price</th>
@@ -330,7 +329,6 @@
                     @endphp
                     <tr>
                         <td>{{ $ser }}</td>
-                        <td>{{ $details->product1->category->cat }}</td>
                         <td>{{ $details->product1->name }}</td>
                         <td>{{ $details->product1->size }}</td>
                         <td>{{ $details->price }}</td>

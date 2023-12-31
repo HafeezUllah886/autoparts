@@ -78,7 +78,6 @@
                         <thead class="th-color">
                             <tr>
                                 <th class="border-top-0">{{ __('lang.Ser') }}</th>
-                                <th class="border-top-0">{{ __('lang.Category') }}</th>
                                 <th class="border-top-0">{{ __('lang.Product') }}</th>
                                 <th class="border-top-0">{{ __('lang.Size') }}</th>
                                 <th class="border-top-0">{{ __('lang.Quantity') }}</th>

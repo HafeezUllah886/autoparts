@@ -11,7 +11,6 @@
 @endphp
 <tr>
     <td>{{ $ser }}</td>
-    <td>{{ $item->product1->category->cat }}</td>
     <td>{{ $item->product1->name }}</td>
     <td>{{ $item->product1->size }}</td>
     <td><input type="number" class="text-center" value="{{ $item->qty }}" id="qty{{ $item->id }}" onfocusout="qty({{ $item->id }})"></td>

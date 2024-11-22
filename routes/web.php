@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConfirmPasswordController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\priceAdjustmentController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\purchaseController;
 use App\Http\Controllers\QuotationController;
@@ -171,6 +172,10 @@ Route::middleware('auth')->group(function (){
     Route::post('/return', [SaleReturnController::class, 'search']);
     Route::get('/return/view/{id}', [SaleReturnController::class, 'view']);
     Route::post('/return/save/{bill}', [SaleReturnController::class, 'saveReturn']);
+
+    Route::get('/priceAdjustment', [priceAdjustmentController::class, 'index'])->name('priceAdjustment');
+    Route::post('/priceAdjustment/store', [priceAdjustmentController::class, 'store'])->name('priceAdjustment.store');
+    Route::get('/priceAdjustment/export', [priceAdjustmentController::class, 'export'])->name('priceAdjustment.export');
 
 
 });

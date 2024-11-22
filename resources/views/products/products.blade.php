@@ -24,10 +24,12 @@
                         $firstDateOfMonth = date('Y-m-01', strtotime($currentMonth));
                         $lastDateOfMonth = date('Y-m-t', strtotime($currentMonth));
                     @endphp
+                <a href="{{ route('priceAdjustment') }}" class="btn btn-dark mr-2" >Price Adjustment</a>
                 <a href="{{ url('/profit/') }}/{{ $firstDateOfMonth }}/{{ $lastDateOfMonth }}" class="btn btn-info mr-2" >{{ __('lang.Profit/Loss') }}</a>
-                <a href="{{ url('/products/trashed') }}" class="btn btn-dark mr-2" >{{ __('lang.Trashed') }}</a>
+              {{--   <a href="{{ url('/products/trashed') }}" class="btn btn-dark mr-2" >{{ __('lang.Trashed') }}</a> --}}
                 <button class="btn btn-success mr-2" data-toggle="modal" data-target="#modal">{{ __('lang.CreateNew') }}</button>
                 <button class="btn btn-primary" data-toggle="modal" data-target="#importModal">Import</button>
+                <a href="{{ route('priceAdjustment.export') }}" class="btn btn-info mr-2" >Export</a>
                 </div>
 
             </div>
@@ -81,7 +83,7 @@
                                 <td>
 
                                     <button onclick='edit_pro({{ $pro->id }})' class="btn btn-primary">Edit</button>
-                                    <a href="{{ url('/product/delete/') }}/{{ $pro->id }}" class="btn btn-danger">Delete</a>
+                                  {{--   <a href="{{ url('/product/delete/') }}/{{ $pro->id }}" class="btn btn-danger">Delete</a> --}}
                                     </td>
                             </tr>
                             @endforeach

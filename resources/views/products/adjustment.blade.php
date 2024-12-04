@@ -37,7 +37,8 @@
                                 <th class="border-top-0">Brand</th>
                                 <th class="border-top-0">Made In</th>
                                 <th class="border-top-0">{{ __('lang.Size') }}</th>
-                                <th class="border-top-0">Price</th>
+                                <th class="border-top-0">P-Price</th>
+                                <th class="border-top-0">S-Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +59,7 @@
                                 <td>{{ $pro->size }}</td>
                                 <td>
                                     <input type="hidden" name="ids[]" value="{{$pro->id}}">
+                                    <input type="number" step="any" name="pprice[]" value="{{$pro->pprice}}" class="form-control text-center">
                                     <input type="number" step="any" name="price[]" value="{{$pro->price}}" class="form-control text-center">
                                 </td>
                             </tr>

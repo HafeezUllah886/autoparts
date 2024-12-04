@@ -26,6 +26,7 @@ class priceAdjustmentController extends Controller
             $product = products::find($id);
             $product->update(
                 [
+                    'pprice' => $request->pprice[$key] ?? 0,
                     'price' => $request->price[$key] ?? 0,
                 ]
             );
